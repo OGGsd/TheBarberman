@@ -1,0 +1,17 @@
+# Netlify redirects for SPA routing
+# This ensures all routes are handled by the React app
+
+# Handle legacy routes with redirects (301 = permanent redirect)
+/privacy             /integritetspolicy   301
+/terms               /anvandarvillkor     301
+
+# Handle specific Swedish routes (200 = serve React app)
+/integritetspolicy   /index.html   200
+/anvandarvillkor     /index.html   200
+/om-oss              /index.html   200
+
+# Handle all other routes by serving index.html (SPA routing)
+/*    /index.html   200
+
+# Handle 404s by serving the React app
+/404   /index.html   200
