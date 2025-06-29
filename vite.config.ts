@@ -56,9 +56,7 @@ export default defineConfig({
             }
           }
         ],
-        // CRITICAL FIX: Only use offline.html for actual network failures, not for routing
         navigateFallback: '/index.html',
-        // Exclude API routes and file extensions from fallback
         navigateFallbackDenylist: [
           /^\/_/,
           /\/[^/?]+\.[^/]+$/,
@@ -69,16 +67,10 @@ export default defineConfig({
         clientsClaim: true
       },
       includeAssets: [
-        'favicon.ico', 
+        'barberman-logo.png',
         'offline.html',
-        'favicon-36x36.png',
-        'favicon-48x48.png',
-        'favicon-72x72.png',
-        'favicon-96x96.png',
-        'favicon-144x144.png',
-        'pwa-192x192.png',
-        'pwa-512x512.png',
-        'barberman-logo.png'
+        'Basel.jpg',
+        '3463cbef-8ccf-4b88-a75e-b559a779fd36.jpg'
       ],
       manifest: {
         name: 'The Barberman',
@@ -94,52 +86,58 @@ export default defineConfig({
         lang: 'sv',
         icons: [
           {
-            src: '/favicon.ico',
-            sizes: '16x16 32x32 48x48',
-            type: 'image/x-icon',
-            purpose: 'any'
-          },
-          {
-            src: '/favicon-36x36.png',
-            sizes: '36x36',
+            src: '/barberman-logo.png',
+            sizes: '16x16 32x32 48x48 72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/favicon-48x48.png',
-            sizes: '48x48',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/favicon-72x72.png',
+            src: '/barberman-logo.png',
             sizes: '72x72',
             type: 'image/png',
-            purpose: 'any'
+            purpose: 'maskable'
           },
           {
-            src: '/favicon-96x96.png',
+            src: '/barberman-logo.png',
             sizes: '96x96',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/favicon-144x144.png',
+            src: '/barberman-logo.png',
+            sizes: '128x128',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
+            src: '/barberman-logo.png',
             sizes: '144x144',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/pwa-192x192.png',
+            src: '/barberman-logo.png',
+            sizes: '152x152',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
+            src: '/barberman-logo.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
-            src: '/pwa-512x512.png',
+            src: '/barberman-logo.png',
+            sizes: '384x384',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
+            src: '/barberman-logo.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           }
         ],
         shortcuts: [
@@ -150,7 +148,7 @@ export default defineConfig({
             url: '/',
             icons: [
               {
-                src: '/favicon-96x96.png',
+                src: '/barberman-logo.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
@@ -163,7 +161,7 @@ export default defineConfig({
             url: '/om-oss',
             icons: [
               {
-                src: '/favicon-96x96.png',
+                src: '/barberman-logo.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
