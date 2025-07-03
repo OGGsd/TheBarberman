@@ -2,26 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced iframe modal styles for mobile optimization */
+/* Enhanced iframe modal styles for full screen optimization */
 body.iframe-modal-open {
   overflow: hidden !important;
   position: fixed !important;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
   /* iOS Safari specific fixes */
   -webkit-overflow-scrolling: touch;
   touch-action: none;
   /* Prevent any scrolling */
   overscroll-behavior: none;
+  /* Ensure full screen */
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
 }
 
-/* Mobile-first iframe optimizations - Ensure iframe reaches bottom */
+/* Full screen iframe optimizations - Ensure iframe reaches every corner */
 .iframe-container {
-  /* Ensure iframe container takes exact calculated space */
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
-  min-height: 100%;
+  /* Ensure iframe container takes exact full screen space */
+  width: 100vw !important;
+  height: calc(100vh - 48px) !important;
+  max-height: calc(100vh - 48px) !important;
+  min-height: calc(100vh - 48px) !important;
+  max-width: 100vw !important;
+  min-width: 100vw !important;
   /* iOS Safari specific */
   -webkit-overflow-scrolling: touch;
   overflow: hidden; /* Container doesn't scroll, iframe does */
@@ -39,6 +48,11 @@ body.iframe-modal-open {
   position: relative;
   display: flex;
   flex-direction: column;
+  /* Remove any potential spacing */
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .iframe-container iframe {
@@ -55,11 +69,13 @@ body.iframe-modal-open {
   touch-action: manipulation;
   /* Ensure proper display */
   display: block !important;
-  width: 100% !important;
-  /* Critical: Exact height to reach bottom */
+  /* Critical: Full screen dimensions */
+  width: 100vw !important;
   height: 100% !important;
   max-height: 100% !important;
   min-height: 100% !important;
+  max-width: 100vw !important;
+  min-width: 100vw !important;
   /* Flex properties for exact sizing */
   flex: 1;
   flex-shrink: 0;
@@ -67,6 +83,15 @@ body.iframe-modal-open {
   /* Ensure iframe content can scroll */
   overflow-y: auto !important;
   overflow-x: hidden !important;
+  /* Remove any potential spacing */
+  padding: 0 !important;
+  margin: 0 !important;
+  /* Ensure exact positioning */
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* iOS Safari specific iframe optimizations */
@@ -74,9 +99,12 @@ body.iframe-modal-open {
   /* iOS Safari */
   .iframe-container {
     /* Fix iOS Safari iframe height issues */
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
+    height: calc(100vh - 48px) !important;
+    min-height: calc(100vh - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
     /* Prevent rubber band scrolling */
     overscroll-behavior: none;
     /* Ensure exact positioning */
@@ -90,13 +118,16 @@ body.iframe-modal-open {
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
     /* Prevent iOS Safari scrolling issues */
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     overflow-x: hidden;
     /* Flex properties for iOS */
     flex: 1 1 100%;
-    /* Ensure iframe reaches exact bottom */
+    /* Ensure iframe reaches exact corners */
     position: relative;
     display: block;
   }
@@ -130,6 +161,9 @@ iframe {
     height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 100vw !important;
   }
   
   .iframe-container iframe {
@@ -140,6 +174,9 @@ iframe {
     height: 100% !important;
     max-height: 100% !important;
     min-height: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 100vw !important;
   }
   
   /* Hide any potential browser UI */
@@ -147,6 +184,8 @@ iframe {
     /* Ensure full screen usage in PWA mode */
     height: 100vh !important;
     max-height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
   }
 }
 
@@ -156,23 +195,29 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile viewport optimizations - Ensure iframe reaches bottom */
+/* Mobile viewport optimizations - Ensure iframe reaches every corner */
 @media screen and (max-width: 768px) {
   .iframe-container {
-    /* Mobile-specific optimizations - exact height calculations */
+    /* Mobile-specific optimizations - exact full screen calculations */
     height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
     /* Ensure no extra spacing */
     padding: 0;
     margin: 0;
   }
   
   .iframe-container iframe {
-    /* Mobile iframe optimizations - reach exact bottom */
+    /* Mobile iframe optimizations - reach exact corners */
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
     /* Prevent horizontal scrolling on mobile */
     overflow-x: hidden;
     overflow-y: auto;
@@ -196,16 +241,22 @@ body {
 /* Landscape orientation optimizations */
 @media screen and (orientation: landscape) and (max-height: 500px) {
   .iframe-container {
-    /* Landscape mode - ensure iframe still reaches bottom */
+    /* Landscape mode - ensure iframe still reaches corners */
     height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
   }
   
   .iframe-container iframe {
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
   }
 }
 
@@ -223,14 +274,22 @@ iframe[title] {
   animation-iteration-count: infinite;
 }
 
-/* High z-index for iframe modal to ensure it overlaps everything */
+/* Maximum z-index for iframe modal to ensure it overlaps everything */
 .iframe-modal {
-  z-index: 9999 !important;
+  z-index: 999999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 /* Ensure iframe modal header stays on top */
 .iframe-modal-header {
-  z-index: 10000 !important;
+  z-index: 1000000 !important;
+  position: relative !important;
 }
 
 /* Mobile-specific touch optimizations */
@@ -258,11 +317,17 @@ iframe[title] {
     /* Adjust for keyboard presence */
     height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
   }
   
   .iframe-container iframe {
     height: 100% !important;
     min-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
   }
 }
 
@@ -284,5 +349,46 @@ iframe[title] {
     height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
   }
+}
+
+/* Ensure maximum z-index layering */
+.booking-iframe-overlay {
+  z-index: 999999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+}
+
+/* Override any potential conflicting z-index values */
+* {
+  z-index: auto;
+}
+
+.booking-iframe-overlay,
+.booking-iframe-overlay * {
+  z-index: 999999 !important;
+}
+
+.booking-iframe-header {
+  z-index: 1000000 !important;
+}
+
+.booking-iframe-content {
+  z-index: 999998 !important;
+}
+
+.booking-iframe-loading,
+.booking-iframe-error,
+.booking-iframe-offline {
+  z-index: 999999 !important;
 }

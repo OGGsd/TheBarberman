@@ -49,20 +49,25 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
       }
     }, 15000); // 15 second timeout for iOS
 
-    // Calculate and set proper heights
+    // Calculate and set proper heights for full screen
     const updateHeights = () => {
       const vh = window.innerHeight;
+      const vw = window.innerWidth;
       const headerHeight = 48; // Minimal header height
       const availableHeight = vh - headerHeight;
       
       if (containerRef.current) {
         containerRef.current.style.height = `${availableHeight}px`;
         containerRef.current.style.maxHeight = `${availableHeight}px`;
+        containerRef.current.style.width = `${vw}px`;
+        containerRef.current.style.maxWidth = `${vw}px`;
       }
       
       if (iframeRef.current) {
         iframeRef.current.style.height = `${availableHeight}px`;
         iframeRef.current.style.minHeight = `${availableHeight}px`;
+        iframeRef.current.style.width = `${vw}px`;
+        iframeRef.current.style.minWidth = `${vw}px`;
       }
     };
 
@@ -104,8 +109,11 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
     // Ensure iframe takes full available height after load
     if (iframeRef.current && containerRef.current) {
       const containerHeight = containerRef.current.clientHeight;
+      const containerWidth = containerRef.current.clientWidth;
       iframeRef.current.style.height = `${containerHeight}px`;
       iframeRef.current.style.minHeight = `${containerHeight}px`;
+      iframeRef.current.style.width = `${containerWidth}px`;
+      iframeRef.current.style.minWidth = `${containerWidth}px`;
     }
   };
 
@@ -243,16 +251,34 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
 
   return (
     <AnimatePresence>
+      {/* Full Screen Modal Overlay - Maximum Z-Index */}
       <motion.div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex flex-col"
+        className="fixed inset-0 bg-black bg-opacity-50 flex flex-col"
+        style={{ 
+          zIndex: 999999,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100vh',
+          maxWidth: '100vw',
+          maxHeight: '100vh'
+        }}
         variants={modalVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
       >
-        {/* Minimized Header with enhanced animation */}
+        {/* Header with Maximum Z-Index */}
         <motion.div 
-          className="bg-gradient-to-r from-[#F4A300] via-[#f5a623] to-[#e6930a] text-white px-4 py-2 flex items-center justify-between shadow-lg relative z-[10000] h-12 flex-shrink-0"
+          className="bg-gradient-to-r from-[#F4A300] via-[#f5a623] to-[#e6930a] text-white px-4 py-2 flex items-center justify-between shadow-lg h-12 flex-shrink-0"
+          style={{ 
+            zIndex: 1000000,
+            position: 'relative',
+            width: '100%'
+          }}
           variants={headerVariants}
         >
           <div className="flex items-center min-w-0 flex-1">
@@ -317,7 +343,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           </div>
         </motion.div>
 
-        {/* Full-Screen Content Area with enhanced animations */}
+        {/* Full-Screen Content Area */}
         <motion.div 
           ref={containerRef}
           className="flex-1 relative bg-white overflow-hidden iframe-container"
@@ -325,17 +351,23 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           style={{ 
             height: 'calc(100vh - 48px)',
             maxHeight: 'calc(100vh - 48px)',
-            minHeight: 'calc(100vh - 48px)'
+            minHeight: 'calc(100vh - 48px)',
+            width: '100vw',
+            maxWidth: '100vw',
+            minWidth: '100vw',
+            zIndex: 999998,
+            position: 'relative'
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          {/* Loading State with enhanced animation */}
+          {/* Loading State */}
           <AnimatePresence>
             {isLoading && (
               <motion.div 
-                className="absolute inset-0 flex items-center justify-center bg-white z-10"
+                className="absolute inset-0 flex items-center justify-center bg-white"
+                style={{ zIndex: 999999 }}
                 variants={loadingVariants}
                 initial="hidden"
                 animate="visible"
@@ -375,11 +407,12 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             )}
           </AnimatePresence>
 
-          {/* Offline State with enhanced animation */}
+          {/* Offline State */}
           <AnimatePresence>
             {!isOnline && (
               <motion.div 
-                className="absolute inset-0 flex items-center justify-center bg-white z-20 p-4"
+                className="absolute inset-0 flex items-center justify-center bg-white p-4"
+                style={{ zIndex: 999999 }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
@@ -417,7 +450,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
                     </motion.button>
                     <div className="flex items-center justify-center text-gray-600 text-sm">
                       <Phone size={16} className="mr-2" />
-                      <span>Ring: 036-71 19 12</span>
+                      <span>Ring: 073-554 58 82</span>
                     </div>
                   </div>
                 </div>
@@ -425,11 +458,12 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             )}
           </AnimatePresence>
 
-          {/* Error State with enhanced animation */}
+          {/* Error State */}
           <AnimatePresence>
             {hasError && isOnline && (
               <motion.div 
-                className="absolute inset-0 flex items-center justify-center bg-white z-10 p-4"
+                className="absolute inset-0 flex items-center justify-center bg-white p-4"
+                style={{ zIndex: 999999 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -475,7 +509,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
                     </motion.button>
                     <div className="flex items-center justify-center text-gray-600 text-sm">
                       <Phone size={16} className="mr-2" />
-                      <span>Eller ring: 036-71 19 12</span>
+                      <span>Eller ring: 073-554 58 82</span>
                     </div>
                   </div>
                 </div>
@@ -483,7 +517,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             )}
           </AnimatePresence>
 
-          {/* Full-Screen Iframe with fade-in animation */}
+          {/* Full-Screen Iframe */}
           {isOnline && (
             <motion.iframe
               ref={iframeRef}
@@ -493,6 +527,11 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
                 height: '100%',
                 minHeight: '100%',
                 maxHeight: '100%',
+                width: '100%',
+                minWidth: '100%',
+                maxWidth: '100%',
+                zIndex: 999997,
+                position: 'relative',
                 // iOS Safari optimizations
                 WebkitOverflowScrolling: 'touch',
                 overflow: 'auto'
