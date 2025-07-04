@@ -16,7 +16,7 @@ interface ServiceCategory {
 }
 
 const BookingView: React.FC = () => {
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>('Klippningar');
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
   const serviceCategories: ServiceCategory[] = [
