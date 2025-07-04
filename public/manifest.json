@@ -49,7 +49,19 @@
     },
     {
       "src": "/apple-touch-icon.png",
-      "sizes": "16x16 32x32 48x48 72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-1024.png",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
     },
@@ -66,12 +78,6 @@
       "purpose": "maskable"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
       "src": "/apple-touch-icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png",
@@ -84,6 +90,12 @@
       "purpose": "maskable"
     },
     {
+      "src": "/apple-touch-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
       "src": "/apple-touch-icon.png",
       "sizes": "192x192",
       "type": "image/png",
@@ -91,13 +103,13 @@
     },
     {
       "src": "/apple-touch-icon.png",
-      "sizes": "384x384",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "512x512",
+      "src": "/icon-1024.png",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
     }

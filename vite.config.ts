@@ -72,6 +72,7 @@ export default defineConfig({
         'favicon-32x32.png',
         'favicon-96x96.png',
         'favicon-144x144.png',
+        'icon-1024.png',
         'apple-touch-icon.png',
         'apple-touch-icon-57x57.png',
         'apple-touch-icon-60x60.png',
@@ -101,8 +102,56 @@ export default defineConfig({
         lang: 'sv',
         icons: [
           {
+            src: '/favicon-16x16.png',
+            sizes: '16x16',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/favicon-32x32.png',
+            sizes: '32x32',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/favicon-96x96.png',
+            sizes: '96x96',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/favicon-144x144.png',
+            sizes: '144x144',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/apple-touch-icon-152x152.png',
+            sizes: '152x152',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/apple-touch-icon-180x180.png',
+            sizes: '180x180',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
             src: '/apple-touch-icon.png',
-            sizes: '16x16 32x32 48x48 72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/apple-touch-icon.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/icon-1024.png',
+            sizes: '1024x1024',
             type: 'image/png',
             purpose: 'any'
           },
@@ -119,12 +168,6 @@ export default defineConfig({
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon.png',
-            sizes: '128x128',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-          {
             src: '/apple-touch-icon-144x144.png',
             sizes: '144x144',
             type: 'image/png',
@@ -137,6 +180,12 @@ export default defineConfig({
             purpose: 'maskable'
           },
           {
+            src: '/apple-touch-icon-180x180.png',
+            sizes: '180x180',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
             src: '/apple-touch-icon.png',
             sizes: '192x192',
             type: 'image/png',
@@ -144,13 +193,13 @@ export default defineConfig({
           },
           {
             src: '/apple-touch-icon.png',
-            sizes: '384x384',
+            sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon.png',
-            sizes: '512x512',
+            src: '/icon-1024.png',
+            sizes: '1024x1024',
             type: 'image/png',
             purpose: 'maskable'
           }
