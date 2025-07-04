@@ -67,22 +67,21 @@ export default defineConfig({
         clientsClaim: true
       },
       includeAssets: [
-        'favicon.ico',
-        'favicon-16x16.png',
-        'favicon-32x32.png',
-        'favicon-96x96.png',
-        'favicon-144x144.png',
-        'icon-1024.png',
-        'apple-touch-icon.png',
-        'apple-touch-icon-57x57.png',
-        'apple-touch-icon-60x60.png',
-        'apple-touch-icon-72x72.png',
-        'apple-touch-icon-76x76.png',
-        'apple-touch-icon-114x114.png',
-        'apple-touch-icon-120x120.png',
-        'apple-touch-icon-144x144.png',
-        'apple-touch-icon-152x152.png',
-        'apple-touch-icon-180x180.png',
+        'Favicon/16x16.png',
+        'Favicon/32x32.png',
+        'Favicon/57x57.png',
+        'Favicon/60x60.png',
+        'Favicon/72x72.png',
+        'Favicon/76x76.png',
+        'Favicon/96x96.png',
+        'Favicon/114x114.png',
+        'Favicon/120x120.png',
+        'Favicon/144x144.png',
+        'Favicon/152x152.png',
+        'Favicon/180x180.png',
+        'Favicon/192x192.png',
+        'Favicon/512x512.png',
+        'Favicon/1024x1024.png',
         'barberman-logo.png',
         'offline.html',
         'Basel.jpg',
@@ -102,103 +101,103 @@ export default defineConfig({
         lang: 'sv',
         icons: [
           {
-            src: '/favicon-16x16.png',
+            src: '/Favicon/16x16.png',
             sizes: '16x16',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/favicon-32x32.png',
+            src: '/Favicon/32x32.png',
             sizes: '32x32',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/favicon-96x96.png',
+            src: '/Favicon/96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/favicon-144x144.png',
+            src: '/Favicon/144x144.png',
             sizes: '144x144',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/apple-touch-icon-152x152.png',
+            src: '/Favicon/152x152.png',
             sizes: '152x152',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/apple-touch-icon-180x180.png',
+            src: '/Favicon/180x180.png',
             sizes: '180x180',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/apple-touch-icon.png',
+            src: '/Favicon/192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/apple-touch-icon.png',
+            src: '/Favicon/512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/icon-1024.png',
+            src: '/Favicon/1024x1024.png',
             sizes: '1024x1024',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/apple-touch-icon-72x72.png',
+            src: '/Favicon/72x72.png',
             sizes: '72x72',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/favicon-96x96.png',
+            src: '/Favicon/96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon-144x144.png',
+            src: '/Favicon/144x144.png',
             sizes: '144x144',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon-152x152.png',
+            src: '/Favicon/152x152.png',
             sizes: '152x152',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon-180x180.png',
+            src: '/Favicon/180x180.png',
             sizes: '180x180',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon.png',
+            src: '/Favicon/192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/apple-touch-icon.png',
+            src: '/Favicon/512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/icon-1024.png',
+            src: '/Favicon/1024x1024.png',
             sizes: '1024x1024',
             type: 'image/png',
             purpose: 'maskable'
@@ -212,7 +211,7 @@ export default defineConfig({
             url: '/',
             icons: [
               {
-                src: '/favicon-96x96.png',
+                src: '/Favicon/96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
@@ -225,7 +224,7 @@ export default defineConfig({
             url: '/om-oss',
             icons: [
               {
-                src: '/favicon-96x96.png',
+                src: '/Favicon/96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
