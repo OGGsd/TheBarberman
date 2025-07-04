@@ -26,9 +26,9 @@ body.iframe-modal-open {
 .iframe-container {
   /* Ensure iframe container takes exact full screen space */
   width: 100vw !important;
-  height: calc(100vh - 48px) !important;
-  max-height: calc(100vh - 48px) !important;
-  min-height: calc(100vh - 48px) !important;
+  height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+  max-height: calc(100vh - 48px - 80px) !important;
+  min-height: calc(100vh - 48px - 80px) !important;
   max-width: 100vw !important;
   min-width: 100vw !important;
   /* iOS Safari specific */
@@ -99,9 +99,9 @@ body.iframe-modal-open {
   /* iOS Safari */
   .iframe-container {
     /* Fix iOS Safari iframe height issues */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -158,9 +158,9 @@ iframe {
   /* PWA/TWA mode optimizations */
   .iframe-container {
     /* Enhanced performance in standalone mode */
-    height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+    max-height: calc(100vh - 48px - 80px) !important;
+    min-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     max-width: 100vw !important;
     min-width: 100vw !important;
@@ -199,9 +199,9 @@ body {
 @media screen and (max-width: 768px) {
   .iframe-container {
     /* Mobile-specific optimizations - exact full screen calculations */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -242,9 +242,9 @@ body {
 @media screen and (orientation: landscape) and (max-height: 500px) {
   .iframe-container {
     /* Landscape mode - ensure iframe still reaches corners */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -315,8 +315,8 @@ iframe[title] {
   /* When keyboard is likely visible */
   .iframe-container {
     /* Adjust for keyboard presence */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+    min-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -346,9 +346,9 @@ iframe[title] {
   /* iOS Safari viewport height fix */
   .iframe-container {
     /* Use fixed pixel calculation instead of vh on iOS */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* 48px header + 80px bottom nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
