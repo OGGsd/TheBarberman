@@ -67,6 +67,21 @@ export default defineConfig({
         clientsClaim: true
       },
       includeAssets: [
+        'favicon.ico',
+        'favicon-16x16.png',
+        'favicon-32x32.png',
+        'favicon-96x96.png',
+        'favicon-144x144.png',
+        'apple-touch-icon.png',
+        'apple-touch-icon-57x57.png',
+        'apple-touch-icon-60x60.png',
+        'apple-touch-icon-72x72.png',
+        'apple-touch-icon-76x76.png',
+        'apple-touch-icon-114x114.png',
+        'apple-touch-icon-120x120.png',
+        'apple-touch-icon-144x144.png',
+        'apple-touch-icon-152x152.png',
+        'apple-touch-icon-180x180.png',
         'barberman-logo.png',
         'offline.html',
         'Basel.jpg',
@@ -86,55 +101,55 @@ export default defineConfig({
         lang: 'sv',
         icons: [
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon.png',
             sizes: '16x16 32x32 48x48 72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon-72x72.png',
             sizes: '72x72',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/favicon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon.png',
             sizes: '128x128',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon-144x144.png',
             sizes: '144x144',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon-152x152.png',
             sizes: '152x152',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon.png',
             sizes: '384x384',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/barberman-logo.png',
+            src: '/apple-touch-icon.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable'
@@ -148,7 +163,7 @@ export default defineConfig({
             url: '/',
             icons: [
               {
-                src: '/barberman-logo.png',
+                src: '/favicon-96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
@@ -161,7 +176,7 @@ export default defineConfig({
             url: '/om-oss',
             icons: [
               {
-                src: '/barberman-logo.png',
+                src: '/favicon-96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
