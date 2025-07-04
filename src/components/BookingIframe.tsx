@@ -55,10 +55,8 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
       const vw = window.innerWidth;
       const headerHeight = 48; // Minimal header height
       
-      // Desktop (1025px+): Full screen overlap, Mobile/Tablet: Respect bottom nav
-      const isDesktop = window.innerWidth >= 1025;
-      const bottomNavHeight = isDesktop ? 0 : 80; // No bottom nav space on desktop
-      const availableHeight = vh - headerHeight - bottomNavHeight;
+      // ALL DEVICES: Full screen overlap like desktop - only header space
+      const availableHeight = vh - headerHeight; // Only header space on all devices
       
       if (containerRef.current) {
         containerRef.current.style.height = `${availableHeight}px`;
