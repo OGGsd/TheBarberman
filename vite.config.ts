@@ -229,7 +229,6 @@ export default defineConfig({
           client_mode: 'navigate-existing'
         },
         handle_links: 'preferred',
-        capture_links: 'existing-client-navigate'
       },
       devOptions: {
         enabled: false
@@ -260,7 +259,7 @@ export default defineConfig({
           motion: ['framer-motion']
         },
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
+          const info = (assetInfo.name || '').split('.');
           const ext = info[info.length - 1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
             return `assets/images/[name]-[hash][extname]`;
