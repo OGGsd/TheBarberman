@@ -2,11 +2,16 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square70x70logo src="/favicon-96x96.png"/>
-            <square150x150logo src="/favicon-144x144.png"/>
-            <wide310x150logo src="/favicon-144x144.png"/>
-            <square310x310logo src="/favicon-144x144.png"/>
+            <square70x70logo src="/Barberman Favicon/ms-icon-70x70.png"/>
+            <square150x150logo src="/Barberman Favicon/ms-icon-150x150.png"/>
+            <wide310x150logo src="/Barberman Favicon/ms-icon-310x310.png"/>
+            <square310x310logo src="/Barberman Favicon/ms-icon-310x310.png"/>
             <TileColor>#1F2937</TileColor>
         </tile>
+        <notification>
+            <polling-uri src="https://thebarberman.netlify.app/notifications/polling.xml"/>
+            <frequency>30</frequency>
+            <cycle>1</cycle>
+        </notification>
     </msapplication>
 </browserconfig>

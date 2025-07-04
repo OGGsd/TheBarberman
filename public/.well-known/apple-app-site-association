@@ -1,0 +1,26 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.thebarberman.app",
+        "paths": [
+          "/",
+          "/om-oss",
+          "/integritetspolicy",
+          "/anvandarvillkor"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.com.thebarberman.app"
+    ]
+  },
+  "appclips": {
+    "apps": [
+      "TEAMID.com.thebarberman.app.Clip"
+    ]
+  }
+}
