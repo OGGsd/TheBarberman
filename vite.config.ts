@@ -216,13 +216,13 @@ export default defineConfig({
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/apple-icon.png',
+            src: '/Barberman Favicon/android-icon-192x192.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/apple-icon.png',
+            src: '/Barberman Favicon/android-icon-192x192.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable'
