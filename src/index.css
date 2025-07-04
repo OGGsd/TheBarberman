@@ -22,11 +22,11 @@ body.iframe-modal-open {
   bottom: 0 !important;
 }
 
-/* Full screen iframe optimizations - Ensure iframe reaches every corner */
+/* Desktop: Full screen iframe optimizations - Ensure iframe reaches every corner */
 .iframe-container {
-  /* Ensure iframe container takes exact full screen space */
+  /* Desktop: Full screen - overlaps navigation */
   width: 100vw !important;
-  height: calc(100vh - 48px) !important;
+  height: calc(100vh - 48px) !important; /* Only header on desktop */
   max-height: calc(100vh - 48px) !important;
   min-height: calc(100vh - 48px) !important;
   max-width: 100vw !important;
@@ -98,10 +98,10 @@ body.iframe-modal-open {
 @supports (-webkit-touch-callout: none) {
   /* iOS Safari */
   .iframe-container {
-    /* Fix iOS Safari iframe height issues */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    /* iOS Safari: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -157,10 +157,10 @@ iframe {
 @media screen and (display-mode: standalone) {
   /* PWA/TWA mode optimizations */
   .iframe-container {
-    /* Enhanced performance in standalone mode */
-    height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
+    /* PWA/TWA: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    max-height: calc(100vh - 48px - 80px) !important;
+    min-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     max-width: 100vw !important;
     min-width: 100vw !important;
@@ -195,13 +195,13 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile viewport optimizations - Ensure iframe reaches every corner */
+/* Mobile and Tablet: Respect bottom navigation space */
 @media screen and (max-width: 768px) {
   .iframe-container {
-    /* Mobile-specific optimizations - exact full screen calculations */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    /* Mobile/Tablet: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -211,7 +211,7 @@ body {
   }
   
   .iframe-container iframe {
-    /* Mobile iframe optimizations - reach exact corners */
+    /* Mobile/Tablet iframe optimizations */
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
@@ -238,13 +238,57 @@ body {
   }
 }
 
+/* Tablet specific optimizations */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .iframe-container {
+    /* Tablet: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  
+  .iframe-container iframe {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+  }
+}
+
+/* Desktop: Full screen overlap (1025px and above) */
+@media screen and (min-width: 1025px) {
+  .iframe-container {
+    /* Desktop: Full screen - overlaps navigation */
+    height: calc(100vh - 48px) !important; /* Only header */
+    min-height: calc(100vh - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  
+  .iframe-container iframe {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+  }
+}
+
 /* Landscape orientation optimizations */
 @media screen and (orientation: landscape) and (max-height: 500px) {
   .iframe-container {
-    /* Landscape mode - ensure iframe still reaches corners */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    /* Landscape mode: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -296,12 +340,19 @@ iframe[title] {
 @media (hover: none) and (pointer: coarse) {
   /* Touch devices */
   .iframe-container {
+    /* Touch devices: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     /* Optimize for touch */
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
   }
   
   .iframe-container iframe {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
     /* Touch-specific optimizations */
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
@@ -315,8 +366,8 @@ iframe[title] {
   /* When keyboard is likely visible */
   .iframe-container {
     /* Adjust for keyboard presence */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
@@ -345,10 +396,10 @@ iframe[title] {
 @supports (-webkit-touch-callout: none) {
   /* iOS Safari viewport height fix */
   .iframe-container {
-    /* Use fixed pixel calculation instead of vh on iOS */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
+    /* iOS Safari: Respect bottom navigation */
+    height: calc(100vh - 48px - 80px) !important; /* Header + Bottom Nav */
+    min-height: calc(100vh - 48px - 80px) !important;
+    max-height: calc(100vh - 48px - 80px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;

@@ -54,7 +54,11 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
       const vh = window.innerHeight;
       const vw = window.innerWidth;
       const headerHeight = 48; // Minimal header height
-      const availableHeight = vh - headerHeight;
+      
+      // Desktop (1025px+): Full screen overlap, Mobile/Tablet: Respect bottom nav
+      const isDesktop = window.innerWidth >= 1025;
+      const bottomNavHeight = isDesktop ? 0 : 80; // No bottom nav space on desktop
+      const availableHeight = vh - headerHeight - bottomNavHeight;
       
       if (containerRef.current) {
         containerRef.current.style.height = `${availableHeight}px`;
@@ -349,7 +353,8 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           className="flex-1 relative bg-white overflow-hidden iframe-container"
           onTouchStart={handleTouchStart}
           style={{ 
-            height: 'calc(100vh - 48px)',
+            // Dynamic height based on screen size - handled by CSS media queries
+            height: 'calc(100vh - 48px)', // Default desktop
             maxHeight: 'calc(100vh - 48px)',
             minHeight: 'calc(100vh - 48px)',
             width: '100vw',
