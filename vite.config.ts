@@ -117,42 +117,36 @@ export default defineConfig({
             src: '/Barberman Favicon/android-icon-36x36.png',
             sizes: '36x36',
             type: 'image/png',
-            density: '0.75',
             purpose: 'any'
           },
           {
             src: '/Barberman Favicon/android-icon-48x48.png',
             sizes: '48x48',
             type: 'image/png',
-            density: '1.0',
             purpose: 'any'
           },
           {
             src: '/Barberman Favicon/android-icon-72x72.png',
             sizes: '72x72',
             type: 'image/png',
-            density: '1.5',
             purpose: 'maskable'
           },
           {
             src: '/Barberman Favicon/android-icon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
-            density: '2.0',
             purpose: 'maskable'
           },
           {
             src: '/Barberman Favicon/android-icon-144x144.png',
             sizes: '144x144',
             type: 'image/png',
-            density: '3.0',
             purpose: 'maskable'
           },
           {
             src: '/Barberman Favicon/android-icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            density: '4.0',
             purpose: 'maskable'
           },
           {
@@ -235,7 +229,6 @@ export default defineConfig({
           client_mode: 'navigate-existing'
         },
         handle_links: 'preferred',
-        capture_links: 'existing-client-navigate'
       },
       devOptions: {
         enabled: false
@@ -266,7 +259,7 @@ export default defineConfig({
           motion: ['framer-motion']
         },
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
+          const info = (assetInfo.name || '').split('.');
           const ext = info[info.length - 1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
             return `assets/images/[name]-[hash][extname]`;
