@@ -1,394 +1,350 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Clock, ChevronDown, ChevronUp } from 'lucide-react';
+import BookingIframe from './BookingIframe';
 
-/* Enhanced iframe modal styles for full screen optimization */
-body.iframe-modal-open {
-  overflow: hidden !important;
-  position: fixed !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-  /* iOS Safari specific fixes */
-  -webkit-overflow-scrolling: touch;
-  touch-action: none;
-  /* Prevent any scrolling */
-  overscroll-behavior: none;
-  /* Ensure full screen */
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
+interface Service {
+  name: string;
+  duration: string;
+  price: string;
+  bookingUrl: string;
 }
 
-/* Full screen iframe optimizations - Ensure iframe reaches every corner */
-.iframe-container {
-  /* Ensure iframe container takes exact full screen space */
-  width: 100vw !important;
-  height: calc(100vh - 48px) !important;
-  max-height: calc(100vh - 48px) !important;
-  min-height: calc(100vh - 48px) !important;
-  max-width: 100vw !important;
-  min-width: 100vw !important;
-  /* iOS Safari specific */
-  -webkit-overflow-scrolling: touch;
-  overflow: hidden; /* Container doesn't scroll, iframe does */
-  /* Optimize touch interactions */
-  touch-action: manipulation;
-  /* Prevent selection issues */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  /* Prevent iOS Safari from interfering with iframe touch events */
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-user-select: none;
-  /* Ensure exact positioning */
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  /* Remove any potential spacing */
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  outline: none !important;
+interface ServiceCategory {
+  title: string;
+  services: Service[];
 }
 
-.iframe-container iframe {
-  /* Enhanced iOS compatibility - iframe handles its own scrolling */
-  -webkit-overflow-scrolling: touch !important;
-  overflow: auto !important;
-  /* Prevent iOS Safari from adding borders */
-  border: none !important;
-  outline: none !important;
-  /* Optimize rendering */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  /* Prevent iOS Safari touch delays */
-  touch-action: manipulation;
-  /* Ensure proper display */
-  display: block !important;
-  /* Critical: Full screen dimensions */
-  width: 100vw !important;
-  height: 100% !important;
-  max-height: 100% !important;
-  min-height: 100% !important;
-  max-width: 100vw !important;
-  min-width: 100vw !important;
-  /* Flex properties for exact sizing */
-  flex: 1;
-  flex-shrink: 0;
-  flex-grow: 1;
-  /* Ensure iframe content can scroll */
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  /* Remove any potential spacing */
-  padding: 0 !important;
-  margin: 0 !important;
-  /* Ensure exact positioning */
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+const BookingView: React.FC = () => {
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-/* iOS Safari specific iframe optimizations */
-@supports (-webkit-touch-callout: none) {
-  /* iOS Safari */
-  .iframe-container {
-    /* Fix iOS Safari iframe height issues */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    /* Prevent rubber band scrolling */
-    overscroll-behavior: none;
-    /* Ensure exact positioning */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .iframe-container iframe {
-    /* iOS Safari specific height fix - exact sizing */
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    /* Prevent iOS Safari scrolling issues */
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    overflow-x: hidden;
-    /* Flex properties for iOS */
-    flex: 1 1 100%;
-    /* Ensure iframe reaches exact corners */
-    position: relative;
-    display: block;
-  }
-}
+  const serviceCategories: ServiceCategory[] = [
+    {
+      title: "Klippningar",
+      services: [
+        { 
+          name: "Barnklippning (0–12 år)", 
+          duration: "30 min", 
+          price: "250 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/barn-klippning-0-12-ar-2551887"
+        },
+        { 
+          name: "Hårklippning", 
+          duration: "40 min", 
+          price: "339 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/harklippning-1676724"
+        },
+        { 
+          name: "Senior klippning", 
+          duration: "30 min", 
+          price: "250 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/senior-klippning-1676729"
+        },
+        { 
+          name: "Senior klippning & skäggtrimning", 
+          duration: "50 min", 
+          price: "389 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/senior-klippning-och-skaggtrimning-3192667"
+        },
+        { 
+          name: "Studentklippning", 
+          duration: "40 min", 
+          price: "299 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/studentklippning-1676738"
+        },
+        { 
+          name: "Studentklippning & skäggtrim (valfri längd)", 
+          duration: "60 min", 
+          price: "429 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/studentklippning-skaggtrim-valfri-langd-1676737"
+        }
+      ]
+    },
+    {
+      title: "Kombinationsbehandlingar",
+      services: [
+        { 
+          name: "Hårklippning & kort skäggtrim (0–2 cm)", 
+          duration: "60 min", 
+          price: "449 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/harklippning-kort-skaggtrim-0-2-cm-1676725"
+        },
+        { 
+          name: "Hårklippning & lång skäggtrim", 
+          duration: "60 min", 
+          price: "499 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/harklippning-lang-skaggtrim-1676726"
+        },
+        { 
+          name: "Hårklippning & traditionell rakning", 
+          duration: "50 min", 
+          price: "439 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/harklippning-traditionell-rakning-1676727"
+        }
+      ]
+    },
+    {
+      title: "Snaggning & Rakning",
+      services: [
+        { 
+          name: "Snaggning", 
+          duration: "15 min", 
+          price: "149 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/snagging-1676736"
+        },
+        { 
+          name: "Snaggning & skäggtrim", 
+          duration: "35 min", 
+          price: "359 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/snaggning-skaggtrim-1676732"
+        },
+        { 
+          name: "Snaggning & skinfade", 
+          duration: "30 min", 
+          price: "229 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/snaggning-skinfade-1676734"
+        },
+        { 
+          name: "Snaggning, skinfade & skäggtrim", 
+          duration: "45 min", 
+          price: "369 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/snaggning-skinfade-skaggtrim-1676735"
+        },
+        { 
+          name: "Snaggning & traditionell rakning", 
+          duration: "40 min", 
+          price: "359 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/snaggning-traditionell-rakning-1676733"
+        }
+      ]
+    },
+    {
+      title: "Skägg & Rakning",
+      services: [
+        { 
+          name: "Skäggtrim (0–2 cm)", 
+          duration: "30 min", 
+          price: "239 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/skaggtrim-0-2-cm-1676730"
+        },
+        { 
+          name: "Skäggtrim (2 cm eller mer)", 
+          duration: "30 min", 
+          price: "289 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/skaggtrim-2cm-eller-mer-1676731"
+        },
+        { 
+          name: "Huvudrakning", 
+          duration: "25 min", 
+          price: "259 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/huvudrakning-1676712"
+        },
+        { 
+          name: "Huvudrakning & skäggtrim", 
+          duration: "45 min", 
+          price: "399 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/huvudrakning-skaggtrim-1676711"
+        },
+        { 
+          name: "Huvudrakning & traditionell rakning", 
+          duration: "35 min", 
+          price: "389 kr",
+          bookingUrl: "https://www.bokadirekt.se/boka-tjanst/the-barberman-44122/huvudrakning-traditionell-rakning-1676740"
+        }
+      ]
+    }
+  ];
 
-/* Enhanced iframe rendering for all platforms */
-iframe {
-  border: none !important;
-  outline: none !important;
-  /* Hardware acceleration for smooth scrolling */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  /* Optimize touch interactions */
-  touch-action: manipulation;
-  /* Prevent selection issues */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  /* Ensure proper rendering */
-  display: block;
-  width: 100%;
-  /* Mobile optimization */
-  max-width: 100%;
-}
+  const toggleCategory = (categoryTitle: string) => {
+    setExpandedCategory(expandedCategory === categoryTitle ? null : categoryTitle);
+  };
 
-/* VKWebView and TWA specific optimizations */
-@media screen and (display-mode: standalone) {
-  /* PWA/TWA mode optimizations */
-  .iframe-container {
-    /* Enhanced performance in standalone mode */
-    height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    min-width: 100vw !important;
-  }
-  
-  .iframe-container iframe {
-    /* Enhanced performance in standalone mode */
-    will-change: transform;
-    backface-visibility: hidden;
-    /* Full viewport usage minus header */
-    height: 100% !important;
-    max-height: 100% !important;
-    min-height: 100% !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    min-width: 100vw !important;
-  }
-  
-  /* Hide any potential browser UI */
-  body.iframe-modal-open {
-    /* Ensure full screen usage in PWA mode */
-    height: 100vh !important;
-    max-height: 100vh !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-  }
-}
+  const handleBookingClick = (service: Service) => {
+    setSelectedService(service);
+  };
 
-/* Prevent iOS Safari rubber band scrolling globally */
-body {
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
-}
+  const closeBookingIframe = () => {
+    setSelectedService(null);
+  };
 
-/* Mobile viewport optimizations - Ensure iframe reaches every corner */
-@media screen and (max-width: 768px) {
-  .iframe-container {
-    /* Mobile-specific optimizations - exact full screen calculations */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    /* Ensure no extra spacing */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .iframe-container iframe {
-    /* Mobile iframe optimizations - reach exact corners */
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    /* Prevent horizontal scrolling on mobile */
-    overflow-x: hidden;
-    overflow-y: auto;
-    /* Ensure exact positioning */
-    position: relative;
-    display: block;
-  }
-  
-  /* Ensure modal takes full screen on mobile */
-  body.iframe-modal-open {
-    /* Mobile-specific full screen */
-    height: 100vh !important;
-    max-height: 100vh !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    /* Prevent any overflow */
-    overflow: hidden !important;
-  }
-}
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-/* Landscape orientation optimizations */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-  .iframe-container {
-    /* Landscape mode - ensure iframe still reaches corners */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-  }
-  
-  .iframe-container iframe {
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-  }
-}
+  const categoryVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30
+      }
+    }
+  };
 
-/* Accessibility improvements */
-iframe[title] {
-  /* Ensure screen readers can identify iframe content */
-  speak: normal;
-}
+  const serviceVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 25
+      }
+    }
+  };
 
-/* Loading state optimizations */
-.iframe-container .animate-spin {
-  /* Smooth animations on all devices */
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
+  return (
+    <>
+      <motion.div 
+        className="p-4 max-w-4xl mx-auto space-y-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Service Categories */}
+        <div className="space-y-3">
+          {serviceCategories.map((category, index) => (
+            <motion.div 
+              key={index} 
+              className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+              variants={categoryVariants}
+              whileHover={{ 
+                scale: 1.01,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              {/* Category Header */}
+              <motion.button
+                onClick={() => toggleCategory(category.title)}
+                className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                whileTap={{ scale: 0.99 }}
+              >
+                <div className="flex items-center">
+                  <div className="text-left">
+                    <motion.h4 
+                      className="text-base font-bold text-gray-900"
+                      whileHover={{ color: "#374151" }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {category.title}
+                    </motion.h4>
+                    <span className="text-xs text-gray-500">
+                      {category.services.length} tjänst{category.services.length > 1 ? 'er' : ''}
+                    </span>
+                  </div>
+                </div>
+                <motion.div
+                  animate={{ rotate: expandedCategory === category.title ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {expandedCategory === category.title ? (
+                    <ChevronUp size={20} className="text-gray-600" />
+                  ) : (
+                    <ChevronDown size={20} className="text-gray-600" />
+                  )}
+                </motion.div>
+              </motion.button>
 
-/* Maximum z-index for iframe modal to ensure it overlaps everything */
-.iframe-modal {
-  z-index: 999999 !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-}
+              {/* Services List with smooth expand/collapse */}
+              <AnimatePresence>
+                {expandedCategory === category.title && (
+                  <motion.div 
+                    className="border-t border-gray-100 bg-gray-50"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <motion.div
+                      initial="hidden"
+                      animate="visible"
+                      variants={{
+                        visible: {
+                          transition: {
+                            staggerChildren: 0.05
+                          }
+                        }
+                      }}
+                    >
+                      {category.services.map((service, serviceIndex) => (
+                        <motion.div 
+                          key={serviceIndex} 
+                          className="p-4 border-b border-gray-200 last:border-b-0 bg-white mx-2 mb-2 last:mb-0 rounded-lg shadow-sm"
+                          variants={serviceVariants}
+                          whileHover={{ 
+                            scale: 1.02,
+                            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)"
+                          }}
+                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                        >
+                          <div className="flex justify-between items-start mb-3">
+                            <h5 className="font-semibold text-gray-900 text-sm leading-tight flex-1 mr-3">
+                              {service.name}
+                            </h5>
+                            <div className="text-right flex-shrink-0">
+                              <motion.div 
+                                className="font-bold text-gray-800 text-sm"
+                                whileHover={{ scale: 1.05 }}
+                              >
+                                {service.price}
+                              </motion.div>
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center text-gray-600">
+                              <Clock size={12} className="mr-1" />
+                              <span className="text-xs">{service.duration}</span>
+                            </div>
+                            <motion.button 
+                              onClick={() => handleBookingClick(service)}
+                              className="bg-gray-900 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-gray-800 transition-colors duration-200 shadow-md"
+                              whileHover={{ 
+                                scale: 1.05,
+                                boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)"
+                              }}
+                              whileTap={{ scale: 0.95 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            >
+                              BOKA
+                            </motion.button>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
-/* Ensure iframe modal header stays on top */
-.iframe-modal-header {
-  z-index: 1000000 !important;
-  position: relative !important;
-}
+      {/* Booking Iframe Modal with animation */}
+      <AnimatePresence>
+        {selectedService && (
+          <BookingIframe
+            bookingUrl={selectedService.bookingUrl}
+            serviceName={selectedService.name}
+            onClose={closeBookingIframe}
+          />
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
 
-/* Mobile-specific touch optimizations */
-@media (hover: none) and (pointer: coarse) {
-  /* Touch devices */
-  .iframe-container {
-    /* Optimize for touch */
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-  }
-  
-  .iframe-container iframe {
-    /* Touch-specific optimizations */
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-    /* Prevent touch delay */
-    touch-action: manipulation;
-  }
-}
-
-/* Keyboard handling for mobile devices */
-@media screen and (max-height: 500px) {
-  /* When keyboard is likely visible */
-  .iframe-container {
-    /* Adjust for keyboard presence */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-  }
-  
-  .iframe-container iframe {
-    height: 100% !important;
-    min-height: 100% !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-  }
-}
-
-/* Ensure no gaps or spacing issues */
-.iframe-container,
-.iframe-container iframe {
-  /* Remove any potential spacing */
-  padding: 0 !important;
-  margin: 0 !important;
-  /* Ensure exact fit */
-  box-sizing: border-box !important;
-}
-
-/* Fix for potential iOS Safari address bar issues */
-@supports (-webkit-touch-callout: none) {
-  /* iOS Safari viewport height fix */
-  .iframe-container {
-    /* Use fixed pixel calculation instead of vh on iOS */
-    height: calc(100vh - 48px) !important;
-    min-height: calc(100vh - 48px) !important;
-    max-height: calc(100vh - 48px) !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-  }
-}
-
-/* Ensure maximum z-index layering */
-.booking-iframe-overlay {
-  z-index: 999999 !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-}
-
-/* Override any potential conflicting z-index values */
-* {
-  z-index: auto;
-}
-
-.booking-iframe-overlay,
-.booking-iframe-overlay * {
-  z-index: 999999 !important;
-}
-
-.booking-iframe-header {
-  z-index: 1000000 !important;
-}
-
-.booking-iframe-content {
-  z-index: 999998 !important;
-}
-
-.booking-iframe-loading,
-.booking-iframe-error,
-.booking-iframe-offline {
-  z-index: 999999 !important;
-}
+export default BookingView;

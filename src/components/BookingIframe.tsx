@@ -54,8 +54,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
       const vh = window.innerHeight;
       const vw = window.innerWidth;
       const headerHeight = 48; // Minimal header height
-      const bottomNavHeight = 80; // Bottom navigation space
-      const availableHeight = vh - headerHeight - bottomNavHeight;
+      const availableHeight = vh - headerHeight;
       
       if (containerRef.current) {
         containerRef.current.style.height = `${availableHeight}px`;
@@ -350,9 +349,9 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           className="flex-1 relative bg-white overflow-hidden iframe-container"
           onTouchStart={handleTouchStart}
           style={{ 
-            height: 'calc(100vh - 48px - 80px)', // 48px header + 80px bottom nav space
-            maxHeight: 'calc(100vh - 48px - 80px)',
-            minHeight: 'calc(100vh - 48px - 80px)',
+            height: 'calc(100vh - 48px)',
+            maxHeight: 'calc(100vh - 48px)',
+            minHeight: 'calc(100vh - 48px)',
             width: '100vw',
             maxWidth: '100vw',
             minWidth: '100vw',
