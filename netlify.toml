@@ -57,14 +57,14 @@
 
 # Apple Store Compliant Favicon Headers
 [[headers]]
-  for = "/Barberman Favicon/*"
+  for = "/Barberman%20Favicon/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Barberman Favicon/favicon.ico"
+  for = "/Barberman%20Favicon/favicon.ico"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/x-icon"
