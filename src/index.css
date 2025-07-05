@@ -585,7 +585,7 @@ iframe[title] {
 
 /* Z-INDEX MANAGEMENT */
 .booking-iframe-overlay {
-  z-index: 999999 !important;
+  z-index: 9999999 !important;
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -604,21 +604,21 @@ iframe[title] {
 
 .booking-iframe-overlay,
 .booking-iframe-overlay * {
-  z-index: 999999 !important;
+  z-index: 9999999 !important;
 }
 
 .booking-iframe-header {
-  z-index: 1000000 !important;
+  z-index: 10000000 !important;
 }
 
 .booking-iframe-content {
-  z-index: 999998 !important;
+  z-index: 9999998 !important;
 }
 
 .booking-iframe-loading,
 .booking-iframe-error,
 .booking-iframe-offline {
-  z-index: 999999 !important;
+  z-index: 9999999 !important;
 }
 
 /* PERFORMANCE OPTIMIZATIONS */
