@@ -55,21 +55,22 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.bokadirekt.se; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; frame-src 'self' https://www.bokadirekt.se; connect-src 'self' https: wss:; upgrade-insecure-requests"
 
-# Apple Store Compliant Favicon Headers
+# Apple Store Compliant Favicon Headers - PERFECT ROUTING
 [[headers]]
-  for = "/Barberman Favicon/*"
+  for = "/Barberman%20Favicon/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Barberman Favicon/favicon.ico"
+  for = "/Barberman%20Favicon/favicon.ico"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/x-icon"
     Access-Control-Allow-Origin = "*"
 
+# Apple Store Required 1024x1024 Icon Headers
 [[headers]]
   for = "/icon-1024.png"
   [headers.values]
@@ -78,6 +79,7 @@
     X-Apple-Store-Icon = "true"
     Access-Control-Allow-Origin = "*"
 
+# Standard Asset Headers
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -98,12 +100,14 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Service Worker Headers
 [[headers]]
   for = "/sw.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
     Service-Worker-Allowed = "/"
 
+# Manifest Headers
 [[headers]]
   for = "/manifest.json"
   [headers.values]
@@ -116,6 +120,7 @@
     Cache-Control = "public, max-age=86400"
     Content-Type = "application/manifest+json"
 
+# Browser Config Headers
 [[headers]]
   for = "/browserconfig.xml"
   [headers.values]
