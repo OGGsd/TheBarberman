@@ -34,55 +34,75 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
     // Prevent body scroll when iframe modal is open
     document.body.classList.add('iframe-modal-open');
     
-    // iOS Safari specific: Prevent zoom on input focus
+    // Enhanced iOS Safari & Android optimizations
     const viewport = document.querySelector('meta[name=viewport]');
     const originalContent = viewport?.getAttribute('content');
     if (viewport) {
-      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
+      // Apple & Android optimized viewport
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no');
     }
     
-    // Set a timeout to detect if iframe fails to load (iOS Safari compatibility)
+    // Enhanced timeout for Apple & Android compatibility
     loadTimeoutRef.current = setTimeout(() => {
       if (isLoading) {
         setHasError(true);
         setIsLoading(false);
       }
-    }, 15000); // 15 second timeout for iOS
+    }, 20000); // 20 second timeout for mobile devices
 
-    // Calculate and set proper heights for full screen
+    // Enhanced height calculation for Apple & Android devices
     const updateHeights = () => {
       const vh = window.innerHeight;
       const vw = window.innerWidth;
       const headerHeight = 48; // Minimal header height
       
-      // ALL DEVICES: Full screen overlap like desktop - only header space
+      // ENHANCED: Perfect full screen for Apple & Android
       const availableHeight = vh - headerHeight; // Only header space on all devices
       
       if (containerRef.current) {
         containerRef.current.style.height = `${availableHeight}px`;
         containerRef.current.style.maxHeight = `${availableHeight}px`;
+        containerRef.current.style.minHeight = `${availableHeight}px`;
         containerRef.current.style.width = `${vw}px`;
         containerRef.current.style.maxWidth = `${vw}px`;
+        containerRef.current.style.minWidth = `${vw}px`;
+        // Apple specific optimizations
+        containerRef.current.style.webkitTransform = 'translate3d(0, 0, 0)';
+        containerRef.current.style.transform = 'translate3d(0, 0, 0)';
       }
       
       if (iframeRef.current) {
         iframeRef.current.style.height = `${availableHeight}px`;
         iframeRef.current.style.minHeight = `${availableHeight}px`;
+        iframeRef.current.style.maxHeight = `${availableHeight}px`;
         iframeRef.current.style.width = `${vw}px`;
         iframeRef.current.style.minWidth = `${vw}px`;
+        iframeRef.current.style.maxWidth = `${vw}px`;
+        // Apple & Android iframe optimizations
+        iframeRef.current.style.webkitTransform = 'translate3d(0, 0, 0)';
+        iframeRef.current.style.transform = 'translate3d(0, 0, 0)';
+        iframeRef.current.style.webkitBackfaceVisibility = 'hidden';
+        iframeRef.current.style.backfaceVisibility = 'hidden';
       }
     };
 
     // Initial height calculation
     updateHeights();
 
-    // Update heights on resize (orientation change, keyboard show/hide)
+    // Enhanced resize handling for Apple & Android
     const handleResize = () => {
-      setTimeout(updateHeights, 100); // Small delay for iOS keyboard
+      // Immediate update for better responsiveness
+      updateHeights();
+      // Additional update after delay for iOS keyboard
+      setTimeout(updateHeights, 150);
     };
 
+    // Enhanced event listeners for Apple & Android
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
+    // Apple specific events
+    window.addEventListener('scroll', updateHeights, { passive: true });
+    document.addEventListener('touchstart', updateHeights, { passive: true });
 
     return () => {
       document.body.classList.remove('iframe-modal-open');
@@ -98,6 +118,8 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
 
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('orientationchange', handleResize);
+      window.removeEventListener('scroll', updateHeights);
+      document.removeEventListener('touchstart', updateHeights);
     };
   }, [isLoading]);
 
@@ -114,8 +136,13 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
       const containerWidth = containerRef.current.clientWidth;
       iframeRef.current.style.height = `${containerHeight}px`;
       iframeRef.current.style.minHeight = `${containerHeight}px`;
+      iframeRef.current.style.maxHeight = `${containerHeight}px`;
       iframeRef.current.style.width = `${containerWidth}px`;
       iframeRef.current.style.minWidth = `${containerWidth}px`;
+      iframeRef.current.style.maxWidth = `${containerWidth}px`;
+      // Apple & Android optimizations
+      iframeRef.current.style.webkitTransform = 'translate3d(0, 0, 0)';
+      iframeRef.current.style.transform = 'translate3d(0, 0, 0)';
     }
   };
 
@@ -128,23 +155,23 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
   };
 
   const handleFallbackBooking = () => {
-    // iOS Safari compatible external link opening
+    // Enhanced Apple & Android compatible external link opening
     try {
-      // Method 1: Try window.open with specific parameters for iOS
+      // Method 1: Try window.open with Apple & Android optimized parameters
       const newWindow = window.open(
         bookingUrl, 
         '_blank', 
-        'noopener,noreferrer,width=375,height=667,scrollbars=yes,resizable=yes'
+        'noopener,noreferrer,width=390,height=844,scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no'
       );
       
-      // Method 2: If popup blocked (common in iOS), use location
+      // Method 2: Enhanced fallback for mobile browsers
       setTimeout(() => {
         if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
           window.location.href = bookingUrl;
         }
-      }, 100);
+      }, 200);
     } catch (error) {
-      // Fallback: Direct navigation for VKWebView/TWA
+      // Enhanced fallback: Direct navigation for WebView/TWA/PWA
       window.location.href = bookingUrl;
     }
     onClose();
@@ -154,35 +181,46 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
     setIsLoading(true);
     setHasError(false);
     
-    // Reload iframe with cache busting for iOS
+    // Enhanced reload with cache busting for Apple & Android
     if (iframeRef.current) {
       const url = new URL(bookingUrl);
       url.searchParams.set('_t', Date.now().toString());
+      url.searchParams.set('mobile', '1');
+      url.searchParams.set('app', 'pwa');
       iframeRef.current.src = url.toString();
     }
   };
 
-  // Handle postMessage for dynamic height and iOS compatibility
+  // Enhanced postMessage handling for Apple & Android compatibility
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // Security: Only accept messages from BokaDirekt domain
+      // Enhanced security: Only accept messages from BokaDirekt domain
       if (!event.origin.includes('bokadirekt.se')) return;
       
       try {
         const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
         
-        // Handle navigation events for iOS
+        // Enhanced navigation events for mobile devices
         if (data?.type === 'navigation' && data?.url) {
-          console.log('Iframe navigation detected:', data.url);
+          console.log('Mobile iframe navigation detected:', data.url);
         }
         
-        // Handle completion events
+        // Enhanced completion events
         if (data?.type === 'booking_complete') {
-          console.log('Booking completed successfully');
-          // Could trigger success callback here
+          console.log('Mobile booking completed successfully');
+          // Enhanced success handling for mobile
+        }
+        
+        // Apple & Android specific events
+        if (data?.type === 'resize' && data?.height) {
+          // Dynamic height adjustment for mobile
+          if (iframeRef.current) {
+            const newHeight = Math.min(data.height, window.innerHeight - 48);
+            iframeRef.current.style.height = `${newHeight}px`;
+          }
         }
       } catch (error) {
-        console.log('Error parsing postMessage:', error);
+        console.log('Error parsing mobile postMessage:', error);
       }
     };
 
@@ -190,10 +228,22 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  // iOS Safari specific touch handling
+  // Enhanced touch handling for Apple & Android
   const handleTouchStart = (e: React.TouchEvent) => {
-    // Prevent iOS Safari from interfering with iframe touch events
+    // Enhanced touch event handling for mobile devices
     e.stopPropagation();
+    // Additional Apple optimizations
+    if (e.touches.length > 1) {
+      e.preventDefault(); // Prevent pinch zoom
+    }
+  };
+
+  // Enhanced touch move handling for Apple devices
+  const handleTouchMove = (e: React.TouchEvent) => {
+    // Allow iframe scrolling but prevent page scrolling
+    if (e.target === containerRef.current) {
+      e.preventDefault();
+    }
   };
 
   // Animation variants
@@ -266,7 +316,12 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           width: '100vw',
           height: '100vh',
           maxWidth: '100vw',
-          maxHeight: '100vh'
+          maxHeight: '100vh',
+          // Enhanced Apple & Android optimizations
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden'
         }}
         variants={modalVariants}
         initial="hidden"
@@ -279,7 +334,10 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           style={{ 
             zIndex: 1000000,
             position: 'relative',
-            width: '100%'
+            width: '100%',
+            // Enhanced Apple & Android header optimizations
+            WebkitTransform: 'translate3d(0, 0, 0)',
+            transform: 'translate3d(0, 0, 0)'
           }}
           variants={headerVariants}
         >
@@ -350,8 +408,9 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
           ref={containerRef}
           className="flex-1 relative bg-white overflow-hidden iframe-container"
           onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
           style={{ 
-            // Dynamic height based on screen size - handled by CSS media queries
+            // Enhanced dynamic height for Apple & Android
             height: 'calc(100vh - 48px)', // Default desktop
             maxHeight: 'calc(100vh - 48px)',
             minHeight: 'calc(100vh - 48px)',
@@ -359,7 +418,13 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             maxWidth: '100vw',
             minWidth: '100vw',
             zIndex: 999998,
-            position: 'relative'
+            position: 'relative',
+            // Enhanced Apple & Android container optimizations
+            WebkitTransform: 'translate3d(0, 0, 0)',
+            transform: 'translate3d(0, 0, 0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            contain: 'layout style paint'
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -535,18 +600,24 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
                 maxWidth: '100%',
                 zIndex: 999997,
                 position: 'relative',
-                // iOS Safari optimizations
+                // Enhanced Apple & Android iframe optimizations
                 WebkitOverflowScrolling: 'touch',
-                overflow: 'auto'
+                overflow: 'auto',
+                WebkitTransform: 'translate3d(0, 0, 0)',
+                transform: 'translate3d(0, 0, 0)',
+                WebkitBackfaceVisibility: 'hidden',
+                backfaceVisibility: 'hidden',
+                contain: 'layout style paint',
+                willChange: 'transform'
               }}
-              // Enhanced security sandbox for iOS compatibility
+              // Enhanced security sandbox for Apple & Android compatibility
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
               scrolling="auto"
               onLoad={handleIframeLoad}
               onError={handleIframeError}
               title={`Säker bokning - ${serviceName}`}
               loading="lazy"
-              // iOS Safari specific attributes
+              // Enhanced Apple & Android specific attributes
               allow="payment; geolocation"
               referrerPolicy="strict-origin-when-cross-origin"
               // Accessibility

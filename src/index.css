@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced iframe modal styles for full screen optimization */
+/* Enhanced iframe modal styles for full screen optimization - Apple & Android Focus */
 body.iframe-modal-open {
   overflow: hidden !important;
   position: fixed !important;
@@ -20,27 +20,31 @@ body.iframe-modal-open {
   left: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
+  /* Apple specific optimizations */
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* MOBILE & DESKTOP: Full screen iframe optimizations - Complete screen coverage */
+/* ENHANCED MOBILE IFRAME: Perfect Apple & Android Overlapping */
 .iframe-container {
-  /* ALL DEVICES: Full screen - overlaps everything */
+  /* Universal full screen - ALL DEVICES get desktop-like experience */
   width: 100vw !important;
   height: calc(100vh - 48px) !important; /* Only minimal header space */
   max-height: calc(100vh - 48px) !important;
   min-height: calc(100vh - 48px) !important;
   max-width: 100vw !important;
   min-width: 100vw !important;
-  /* iOS Safari specific */
+  /* Apple iOS Safari optimizations */
   -webkit-overflow-scrolling: touch;
   overflow: hidden; /* Container doesn't scroll, iframe does */
-  /* Optimize touch interactions */
+  /* Enhanced touch interactions for Apple devices */
   touch-action: manipulation;
-  /* Prevent selection issues */
+  /* Prevent selection issues on Apple devices */
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  /* Prevent iOS Safari from interfering with iframe touch events */
+  /* Apple specific touch optimizations */
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -ms-user-select: none;
@@ -53,23 +57,30 @@ body.iframe-modal-open {
   margin: 0 !important;
   border: none !important;
   outline: none !important;
+  /* Apple hardware acceleration */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  /* Android Chrome optimizations */
+  contain: layout style paint;
 }
 
 .iframe-container iframe {
-  /* Enhanced iOS compatibility - iframe handles its own scrolling */
+  /* Enhanced Apple & Android compatibility */
   -webkit-overflow-scrolling: touch !important;
   overflow: auto !important;
-  /* Prevent iOS Safari from adding borders */
+  /* Apple Safari border prevention */
   border: none !important;
   outline: none !important;
-  /* Optimize rendering */
+  /* Apple hardware acceleration */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  /* Prevent iOS Safari touch delays */
+  will-change: transform;
+  /* Apple touch optimizations */
   touch-action: manipulation;
   /* Ensure proper display */
   display: block !important;
-  /* Critical: Full screen dimensions */
+  /* CRITICAL: Perfect full screen dimensions */
   width: 100vw !important;
   height: 100% !important;
   max-height: 100% !important;
@@ -92,44 +103,98 @@ body.iframe-modal-open {
   left: 0;
   right: 0;
   bottom: 0;
+  /* Apple specific rendering optimizations */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Android Chrome optimizations */
+  contain: layout style paint;
 }
 
-/* iOS Safari specific iframe optimizations */
+/* APPLE iOS SAFARI SPECIFIC OPTIMIZATIONS */
 @supports (-webkit-touch-callout: none) {
-  /* iOS Safari */
+  /* iOS Safari detected */
   .iframe-container {
-    /* iOS Safari: Full screen overlap - only header space */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* iOS: Perfect full screen overlap */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
-    /* Prevent rubber band scrolling */
+    /* Prevent iOS rubber band scrolling */
     overscroll-behavior: none;
-    /* Ensure exact positioning */
+    /* iOS specific positioning */
     position: relative;
     display: flex;
     flex-direction: column;
+    /* iOS Safari viewport fixes */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   
   .iframe-container iframe {
-    /* iOS Safari specific height fix - exact sizing */
+    /* iOS Safari perfect sizing */
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
-    /* Prevent iOS Safari scrolling issues */
+    /* iOS Safari scrolling optimization */
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     overflow-x: hidden;
-    /* Flex properties for iOS */
+    /* iOS flex optimization */
     flex: 1 1 100%;
-    /* Ensure iframe reaches exact corners */
+    /* iOS positioning */
     position: relative;
     display: block;
+    /* iOS Safari 3D acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  /* iOS Safari address bar handling */
+  body.iframe-modal-open {
+    /* iOS Safari full screen */
+    height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    /* iOS Safari viewport lock */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+/* ANDROID CHROME SPECIFIC OPTIMIZATIONS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+  /* Android Chrome detected */
+  .iframe-container {
+    /* Android: Perfect full screen overlap */
+    height: calc(100vh - 48px) !important;
+    min-height: calc(100vh - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* Android Chrome optimizations */
+    contain: layout style paint;
+    isolation: isolate;
+  }
+  
+  .iframe-container iframe {
+    /* Android Chrome perfect sizing */
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* Android Chrome performance */
+    contain: layout style paint;
+    will-change: transform;
   }
 }
 
@@ -146,28 +211,36 @@ iframe {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  /* Apple specific */
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
   /* Ensure proper rendering */
   display: block;
   width: 100%;
-  /* Mobile optimization */
   max-width: 100%;
+  /* Performance optimizations */
+  will-change: transform;
+  contain: layout style paint;
 }
 
-/* VKWebView and TWA specific optimizations */
+/* PWA/TWA SPECIFIC OPTIMIZATIONS */
 @media screen and (display-mode: standalone) {
-  /* PWA/TWA mode optimizations */
+  /* PWA/TWA mode - Apple & Android */
   .iframe-container {
-    /* PWA/TWA: Full screen overlap */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* PWA: Perfect full screen overlap */
+    height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     width: 100vw !important;
     max-width: 100vw !important;
     min-width: 100vw !important;
+    /* PWA performance optimizations */
+    contain: layout style paint;
+    isolation: isolate;
   }
   
   .iframe-container iframe {
-    /* Enhanced performance in standalone mode */
+    /* Enhanced performance in PWA mode */
     will-change: transform;
     backface-visibility: hidden;
     /* Full viewport usage minus header */
@@ -177,11 +250,13 @@ iframe {
     width: 100vw !important;
     max-width: 100vw !important;
     min-width: 100vw !important;
+    /* PWA optimizations */
+    contain: layout style paint;
   }
   
-  /* Hide any potential browser UI */
+  /* Hide browser UI in PWA mode */
   body.iframe-modal-open {
-    /* Ensure full screen usage in PWA mode */
+    /* PWA full screen */
     height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
@@ -195,54 +270,60 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile and Tablet: Full screen overlap like desktop */
+/* MOBILE FIRST: All mobile devices get full screen overlap */
 @media screen and (max-width: 768px) {
   .iframe-container {
-    /* Mobile/Tablet: Full screen overlap - only header space */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* Mobile: Perfect full screen overlap */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
-    /* Ensure no extra spacing */
+    /* Mobile optimizations */
     padding: 0;
     margin: 0;
+    /* Mobile performance */
+    contain: layout style paint;
+    will-change: transform;
   }
   
   .iframe-container iframe {
-    /* Mobile/Tablet iframe optimizations */
+    /* Mobile iframe perfect sizing */
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
-    /* Prevent horizontal scrolling on mobile */
+    /* Mobile scrolling optimization */
     overflow-x: hidden;
     overflow-y: auto;
-    /* Ensure exact positioning */
+    /* Mobile positioning */
     position: relative;
     display: block;
+    /* Mobile performance */
+    contain: layout style paint;
+    will-change: transform;
   }
   
-  /* Ensure modal takes full screen on mobile */
+  /* Mobile modal full screen */
   body.iframe-modal-open {
-    /* Mobile-specific full screen */
+    /* Mobile full screen lock */
     height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
     max-width: 100vw !important;
-    /* Prevent any overflow */
     overflow: hidden !important;
+    position: fixed !important;
   }
 }
 
-/* Tablet specific optimizations */
+/* TABLET OPTIMIZATIONS */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .iframe-container {
-    /* Tablet: Full screen overlap like desktop */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* Tablet: Full screen overlap */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     width: 100vw !important;
@@ -260,11 +341,11 @@ body {
   }
 }
 
-/* Desktop: Full screen overlap (1025px and above) - SAME AS MOBILE NOW */
+/* DESKTOP: Full screen overlap (same as mobile for consistency) */
 @media screen and (min-width: 1025px) {
   .iframe-container {
-    /* Desktop: Full screen overlap - only header space */
-    height: calc(100vh - 48px) !important; /* Only header */
+    /* Desktop: Full screen overlap */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     width: 100vw !important;
@@ -282,11 +363,11 @@ body {
   }
 }
 
-/* Landscape orientation optimizations */
+/* LANDSCAPE ORIENTATION OPTIMIZATIONS */
 @media screen and (orientation: landscape) and (max-height: 500px) {
   .iframe-container {
-    /* Landscape mode: Full screen overlap */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* Landscape: Full screen overlap */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     width: 100vw !important;
@@ -301,6 +382,86 @@ body {
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
+  }
+}
+
+/* APPLE DEVICE SPECIFIC OPTIMIZATIONS */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* High DPI Apple devices */
+  .iframe-container {
+    /* Apple Retina optimization */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .iframe-container iframe {
+    /* Apple Retina iframe optimization */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+/* IPHONE SPECIFIC OPTIMIZATIONS */
+@media screen and (max-width: 428px) {
+  /* iPhone Pro Max and smaller */
+  .iframe-container {
+    /* iPhone: Perfect full screen */
+    height: calc(100vh - 48px) !important;
+    min-height: calc(100vh - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* iPhone specific optimizations */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .iframe-container iframe {
+    /* iPhone iframe optimization */
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* iPhone 3D acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* IPAD SPECIFIC OPTIMIZATIONS */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* iPad detection */
+  .iframe-container {
+    /* iPad: Perfect full screen */
+    height: calc(100vh - 48px) !important;
+    min-height: calc(100vh - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* iPad specific optimizations */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .iframe-container iframe {
+    /* iPad iframe optimization */
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* iPad 3D acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -318,7 +479,7 @@ iframe[title] {
   animation-iteration-count: infinite;
 }
 
-/* Maximum z-index for iframe modal to ensure it overlaps everything */
+/* Maximum z-index for iframe modal */
 .iframe-modal {
   z-index: 999999 !important;
   position: fixed !important;
@@ -330,43 +491,43 @@ iframe[title] {
   height: 100vh !important;
 }
 
-/* Ensure iframe modal header stays on top */
+/* Iframe modal header */
 .iframe-modal-header {
   z-index: 1000000 !important;
   position: relative !important;
 }
 
-/* Mobile-specific touch optimizations */
+/* TOUCH DEVICE OPTIMIZATIONS */
 @media (hover: none) and (pointer: coarse) {
-  /* Touch devices */
+  /* Touch devices (mobile/tablet) */
   .iframe-container {
-    /* Touch devices: Full screen overlap */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* Touch: Perfect full screen */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
-    /* Optimize for touch */
+    /* Touch optimizations */
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   
   .iframe-container iframe {
     height: 100% !important;
     min-height: 100% !important;
     max-height: 100% !important;
-    /* Touch-specific optimizations */
+    /* Touch optimizations */
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
-    /* Prevent touch delay */
     touch-action: manipulation;
   }
 }
 
-/* Keyboard handling for mobile devices */
+/* KEYBOARD HANDLING FOR MOBILE */
 @media screen and (max-height: 500px) {
   /* When keyboard is likely visible */
   .iframe-container {
-    /* Full screen even with keyboard */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* Maintain full screen even with keyboard */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
@@ -392,21 +553,37 @@ iframe[title] {
   box-sizing: border-box !important;
 }
 
-/* Fix for potential iOS Safari address bar issues */
-@supports (-webkit-touch-callout: none) {
-  /* iOS Safari viewport height fix */
+/* APPLE WEBKIT SPECIFIC FIXES */
+@supports (-webkit-appearance: none) {
+  /* WebKit browsers (Safari, Chrome on iOS) */
   .iframe-container {
-    /* iOS Safari: Full screen overlap */
-    height: calc(100vh - 48px) !important; /* Only header space */
+    /* WebKit: Perfect full screen */
+    height: calc(100vh - 48px) !important;
     min-height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
     width: 100vw !important;
     min-width: 100vw !important;
     max-width: 100vw !important;
+    /* WebKit optimizations */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .iframe-container iframe {
+    /* WebKit iframe optimization */
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* WebKit 3D acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-/* Ensure maximum z-index layering */
+/* Z-INDEX MANAGEMENT */
 .booking-iframe-overlay {
   z-index: 999999 !important;
   position: fixed !important;
@@ -420,7 +597,7 @@ iframe[title] {
   max-height: 100vh !important;
 }
 
-/* Override any potential conflicting z-index values */
+/* Override conflicting z-index values */
 * {
   z-index: auto;
 }
@@ -442,4 +619,69 @@ iframe[title] {
 .booking-iframe-error,
 .booking-iframe-offline {
   z-index: 999999 !important;
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+.iframe-container,
+.iframe-container iframe {
+  /* GPU acceleration for all devices */
+  will-change: transform;
+  contain: layout style paint;
+  /* Smooth rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* FINAL APPLE & ANDROID COMPATIBILITY LAYER */
+@media screen {
+  /* Universal mobile iframe optimization */
+  .iframe-container {
+    /* Perfect full screen for ALL devices */
+    height: calc(100vh - 48px) !important;
+    min-height: calc(100vh - 48px) !important;
+    max-height: calc(100vh - 48px) !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* Universal optimizations */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Performance */
+    contain: layout style paint;
+    will-change: transform;
+    /* Apple & Android compatibility */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .iframe-container iframe {
+    /* Perfect iframe sizing for ALL devices */
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    /* Universal iframe optimizations */
+    flex: 1;
+    position: relative;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Performance */
+    contain: layout style paint;
+    will-change: transform;
+    /* Apple & Android compatibility */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Touch optimizations */
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+  }
 }
