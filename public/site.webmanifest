@@ -71,37 +71,19 @@
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-1024.png",
       "sizes": "1024x1024",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "shortcuts": [
@@ -112,8 +94,8 @@
       "url": "/?utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=quick_booking",
       "icons": [
         {
-          "src": "/Favicon/android-icon-96x96.png",
-          "sizes": "96x96",
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192",
           "type": "image/png"
         }
       ]
@@ -125,8 +107,8 @@
       "url": "/om-oss?utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=about_us",
       "icons": [
         {
-          "src": "/Favicon/android-icon-96x96.png",
-          "sizes": "96x96",
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192",
           "type": "image/png"
         }
       ]
@@ -138,8 +120,8 @@
       "url": "/?tab=info&utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=contact",
       "icons": [
         {
-          "src": "/Favicon/android-icon-96x96.png",
-          "sizes": "96x96",
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192",
           "type": "image/png"
         }
       ]
