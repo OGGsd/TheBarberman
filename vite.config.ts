@@ -72,31 +72,30 @@ export default defineConfig({
         'barberman-logo.png',
         'Basel.jpg',
         '3463cbef-8ccf-4b88-a75e-b559a779fd36.jpg',
-        // Comprehensive favicon inclusion
-        'Favicon/android-icon-36x36.png',
-        'Favicon/android-icon-48x48.png',
-        'Favicon/android-icon-72x72.png',
-        'Favicon/android-icon-96x96.png',
-        'Favicon/android-icon-144x144.png',
-        'Favicon/android-icon-192x192.png',
-        'Favicon/apple-icon-57x57.png',
-        'Favicon/apple-icon-60x60.png',
-        'Favicon/apple-icon-72x72.png',
-        'Favicon/apple-icon-76x76.png',
-        'Favicon/apple-icon-114x114.png',
-        'Favicon/apple-icon-120x120.png',
-        'Favicon/apple-icon-144x144.png',
-        'Favicon/apple-icon-152x152.png',
-        'Favicon/apple-icon-180x180.png',
-        'Favicon/apple-icon-precomposed.png',
-        'Favicon/apple-icon.png',
-        'Favicon/favicon-16x16.png',
-        'Favicon/favicon-32x32.png',
-        'Favicon/favicon-96x96.png',
-        'Favicon/ms-icon-70x70.png',
-        'Favicon/ms-icon-144x144.png',
-        'Favicon/ms-icon-150x150.png',
-        'Favicon/ms-icon-310x310.png'
+        // Comprehensive favicon inclusion from root public
+        'favicon-16x16.png',
+        'favicon-32x32.png',
+        'favicon-96x96.png',
+        'favicon-144x144.png',
+        'android-chrome-192x192.png',
+        'android-chrome-512x512.png',
+        'apple-touch-icon.png',
+        'apple-touch-icon-57x57.png',
+        'apple-touch-icon-60x60.png',
+        'apple-touch-icon-72x72.png',
+        'apple-touch-icon-76x76.png',
+        'apple-touch-icon-114x114.png',
+        'apple-touch-icon-120x120.png',
+        'apple-touch-icon-144x144.png',
+        'apple-touch-icon-152x152.png',
+        'apple-touch-icon-180x180.png',
+        'apple-touch-icon-precomposed.png',
+        'mstile-70x70.png',
+        'mstile-144x144.png',
+        'mstile-150x150.png',
+        'mstile-310x150.png',
+        'mstile-310x310.png',
+        'icon-1024.png'
       ],
       manifest: {
         name: 'The Barberman',
@@ -138,44 +137,50 @@ export default defineConfig({
         },
         icons: [
           {
-            src: '/Favicon/android-icon-36x36.png',
-            sizes: '36x36',
+            src: '/favicon-16x16.png',
+            sizes: '16x16',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Favicon/android-icon-48x48.png',
-            sizes: '48x48',
+            src: '/favicon-32x32.png',
+            sizes: '32x32',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Favicon/android-icon-72x72.png',
-            sizes: '72x72',
-            type: 'image/png',
-            purpose: 'any maskable'
-          },
-          {
-            src: '/Favicon/android-icon-96x96.png',
+            src: '/favicon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: '/Favicon/android-icon-144x144.png',
-            sizes: '144x144',
+            src: '/apple-touch-icon-152x152.png',
+            sizes: '152x152',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
           },
           {
-            src: '/Favicon/android-icon-192x192.png',
+            src: '/apple-touch-icon-180x180.png',
+            sizes: '180x180',
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: '/Favicon/android-icon-192x192.png',
+            src: '/android-chrome-512x512.png',
             sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          },
+          {
+            src: '/icon-1024.png',
+            sizes: '1024x1024',
             type: 'image/png',
             purpose: 'any maskable'
           }
