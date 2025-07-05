@@ -307,7 +307,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
       <motion.div 
         className="fixed inset-0 bg-black bg-opacity-50 flex flex-col"
         style={{ 
-          zIndex: 999999,
+          zIndex: 9999999,
           position: 'fixed',
           top: 0,
           left: 0,
@@ -332,7 +332,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
         <motion.div 
           className="bg-gradient-to-r from-[#F4A300] via-[#f5a623] to-[#e6930a] text-white px-4 py-2 flex items-center justify-between shadow-lg h-12 flex-shrink-0"
           style={{ 
-            zIndex: 1000000,
+            zIndex: 10000000,
             position: 'relative',
             width: '100%',
             // Enhanced Apple & Android header optimizations
@@ -417,7 +417,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             width: '100vw',
             maxWidth: '100vw',
             minWidth: '100vw',
-            zIndex: 999998,
+            zIndex: 9999998,
             position: 'relative',
             // Enhanced Apple & Android container optimizations
             WebkitTransform: 'translate3d(0, 0, 0)',
@@ -435,7 +435,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             {isLoading && (
               <motion.div 
                 className="absolute inset-0 flex items-center justify-center bg-white"
-                style={{ zIndex: 999999 }}
+                style={{ zIndex: 9999999 }}
                 variants={loadingVariants}
                 initial="hidden"
                 animate="visible"
@@ -480,7 +480,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             {!isOnline && (
               <motion.div 
                 className="absolute inset-0 flex items-center justify-center bg-white p-4"
-                style={{ zIndex: 999999 }}
+                style={{ zIndex: 9999999 }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
@@ -531,7 +531,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
             {hasError && isOnline && (
               <motion.div 
                 className="absolute inset-0 flex items-center justify-center bg-white p-4"
-                style={{ zIndex: 999999 }}
+                style={{ zIndex: 9999999 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -598,7 +598,7 @@ const BookingIframe: React.FC<BookingIframeProps> = ({ bookingUrl, serviceName, 
                 width: '100%',
                 minWidth: '100%',
                 maxWidth: '100%',
-                zIndex: 999997,
+                zIndex: 9999997,
                 position: 'relative',
                 // Enhanced Apple & Android iframe optimizations
                 WebkitOverflowScrolling: 'touch',

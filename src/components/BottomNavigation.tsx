@@ -136,7 +136,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
 
   return (
     <motion.div 
-      className="fixed bottom-0 left-0 right-0 z-50"
+      className="fixed bottom-0 left-0 right-0 z-40"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

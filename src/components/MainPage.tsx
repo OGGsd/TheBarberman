@@ -131,7 +131,7 @@ const MainPage: React.FC = () => {
       <AnimatePresence mode="wait">
         {activeTab === 'boka' && (
           <motion.div 
-            className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-4 px-4 shadow-lg sticky top-0 z-40"
+            className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-4 px-4 shadow-lg sticky top-0 z-30"
             variants={headerVariants}
             initial="hidden"
             animate="visible"
