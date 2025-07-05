@@ -92,7 +92,7 @@ export default defineConfig({
         'Barberman Favicon/ms-icon-144x144.png',
         'Barberman Favicon/ms-icon-150x150.png',
         'Barberman Favicon/ms-icon-310x310.png',
-        'icon-1024.png',
+        '1024x1024.png',
         'barberman-logo.png',
         'offline.html',
         'Basel.jpg',
@@ -204,13 +204,13 @@ export default defineConfig({
             purpose: 'maskable'
           },
           {
-            src: '/icon-1024.png',
+            src: '/1024x1024.png',
             sizes: '1024x1024',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/icon-1024.png',
+            src: '/1024x1024.png',
             sizes: '1024x1024',
             type: 'image/png',
             purpose: 'maskable'

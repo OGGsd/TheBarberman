@@ -92,12 +92,6 @@
       "purpose": "any"
     },
     {
-      "src": "/Barberman Favicon/apple-icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
       "src": "/Barberman Favicon/apple-icon-76x76.png",
       "sizes": "76x76",
       "type": "image/png",
@@ -120,12 +114,6 @@
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/Barberman Favicon/apple-icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "maskable"
     },
     {
       "src": "/Barberman Favicon/apple-icon-152x152.png",
@@ -212,13 +200,13 @@
       "purpose": "maskable"
     },
     {
-      "src": "/icon-1024.png",
+      "src": "/1024x1024.png",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-1024.png",
+      "src": "/1024x1024.png",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
