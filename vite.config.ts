@@ -137,32 +137,8 @@ export default defineConfig({
         },
         icons: [
           {
-            src: '/favicon-16x16.png',
-            sizes: '16x16',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/favicon-32x32.png',
-            sizes: '32x32',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/favicon-96x96.png',
-            sizes: '96x96',
-            type: 'image/png',
-            purpose: 'any maskable'
-          },
-          {
-            src: '/apple-touch-icon-152x152.png',
-            sizes: '152x152',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/apple-touch-icon-180x180.png',
-            sizes: '180x180',
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
             type: 'image/png',
             purpose: 'any'
           },
@@ -170,19 +146,61 @@ export default defineConfig({
             src: '/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'maskable'
           },
           {
             src: '/android-chrome-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
           },
           {
             src: '/icon-1024.png',
             sizes: '1024x1024',
             type: 'image/png',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: '/icon-1024.png',
+            sizes: '1024x1024',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
+            sizes: '16x16',
+            type: 'image/png',
+            purpose: 'any',
+            src: '/favicon-16x16.png'
+          },
+          {
+            sizes: '32x32',
+            type: 'image/png',
+            purpose: 'any',
+            src: '/favicon-32x32.png'
+          },
+          {
+            sizes: '96x96',
+            type: 'image/png',
+            purpose: 'any',
+            src: '/favicon-96x96.png'
+          },
+          {
+            sizes: '152x152',
+            type: 'image/png',
+            purpose: 'any',
+            src: '/apple-touch-icon-152x152.png'
+          },
+          {
+            sizes: '180x180',
+            type: 'image/png',
+            purpose: 'any',
+            src: '/apple-touch-icon-180x180.png'
           }
         ],
         shortcuts: [
