@@ -193,8 +193,8 @@ export default defineConfig({
             url: '/?utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=quick_booking',
             icons: [
               {
-                src: '/Favicon/android-icon-96x96.png',
-                sizes: '96x96',
+                src: '/android-chrome-192x192.png',
+                sizes: '192x192',
                 type: 'image/png'
               }
             ]
@@ -206,8 +206,8 @@ export default defineConfig({
             url: '/om-oss?utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=about_us',
             icons: [
               {
-                src: '/Favicon/android-icon-96x96.png',
-                sizes: '96x96',
+                src: '/android-chrome-192x192.png',
+                sizes: '192x192',
                 type: 'image/png'
               }
             ]
@@ -219,8 +219,8 @@ export default defineConfig({
             url: '/?tab=info&utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=contact',
             icons: [
               {
-                src: '/Favicon/android-icon-96x96.png',
-                sizes: '96x96',
+                src: '/android-chrome-192x192.png',
+                sizes: '192x192',
                 type: 'image/png'
               }
             ]

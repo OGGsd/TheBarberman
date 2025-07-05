@@ -64,35 +64,35 @@
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Favicon/*"
+  for = "/favicon-*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Favicon/android-icon-*.png"
+  for = "/android-chrome-*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Favicon/apple-icon-*.png"
+  for = "/apple-touch-icon*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Favicon/ms-icon-*.png"
+  for = "/mstile-*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
     Access-Control-Allow-Origin = "*"
 
 [[headers]]
-  for = "/Favicon/favicon-*.png"
+  for = "/icon-1024.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/png"
