@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Favicon and icon files
+Allow: /Favicon/
+Allow: /icon-1024.png
+Allow: /barberman-logo.png
+
+# PWA files
+Allow: /manifest.json
+Allow: /manifest.webmanifest
+Allow: /site.webmanifest
+Allow: /browserconfig.xml
+Allow: /sw.js
+Allow: /offline.html
+
+# Sitemap
+Sitemap: https://thebarberman.netlify.app/sitemap.xml
