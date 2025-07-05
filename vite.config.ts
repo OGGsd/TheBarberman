@@ -67,31 +67,31 @@ export default defineConfig({
         clientsClaim: true
       },
       includeAssets: [
-        'Barberman Favicon/favicon.ico',
-        'Barberman Favicon/favicon-16x16.png',
-        'Barberman Favicon/favicon-32x32.png',
-        'Barberman Favicon/favicon-96x96.png',
-        'Barberman Favicon/apple-icon.png',
-        'Barberman Favicon/apple-icon-57x57.png',
-        'Barberman Favicon/apple-icon-60x60.png',
-        'Barberman Favicon/apple-icon-72x72.png',
-        'Barberman Favicon/apple-icon-76x76.png',
-        'Barberman Favicon/apple-icon-114x114.png',
-        'Barberman Favicon/apple-icon-120x120.png',
-        'Barberman Favicon/apple-icon-144x144.png',
-        'Barberman Favicon/apple-icon-152x152.png',
-        'Barberman Favicon/apple-icon-180x180.png',
-        'Barberman Favicon/apple-icon-precomposed.png',
-        'Barberman Favicon/android-icon-36x36.png',
-        'Barberman Favicon/android-icon-48x48.png',
-        'Barberman Favicon/android-icon-72x72.png',
-        'Barberman Favicon/android-icon-96x96.png',
-        'Barberman Favicon/android-icon-144x144.png',
-        'Barberman Favicon/android-icon-192x192.png',
-        'Barberman Favicon/ms-icon-70x70.png',
-        'Barberman Favicon/ms-icon-144x144.png',
-        'Barberman Favicon/ms-icon-150x150.png',
-        'Barberman Favicon/ms-icon-310x310.png',
+        'Barberman%20Favicon/favicon.ico',
+        'Barberman%20Favicon/favicon-16x16.png',
+        'Barberman%20Favicon/favicon-32x32.png',
+        'Barberman%20Favicon/favicon-96x96.png',
+        'Barberman%20Favicon/apple-icon.png',
+        'Barberman%20Favicon/apple-icon-57x57.png',
+        'Barberman%20Favicon/apple-icon-60x60.png',
+        'Barberman%20Favicon/apple-icon-72x72.png',
+        'Barberman%20Favicon/apple-icon-76x76.png',
+        'Barberman%20Favicon/apple-icon-114x114.png',
+        'Barberman%20Favicon/apple-icon-120x120.png',
+        'Barberman%20Favicon/apple-icon-144x144.png',
+        'Barberman%20Favicon/apple-icon-152x152.png',
+        'Barberman%20Favicon/apple-icon-180x180.png',
+        'Barberman%20Favicon/apple-icon-precomposed.png',
+        'Barberman%20Favicon/android-icon-36x36.png',
+        'Barberman%20Favicon/android-icon-48x48.png',
+        'Barberman%20Favicon/android-icon-72x72.png',
+        'Barberman%20Favicon/android-icon-96x96.png',
+        'Barberman%20Favicon/android-icon-144x144.png',
+        'Barberman%20Favicon/android-icon-192x192.png',
+        'Barberman%20Favicon/ms-icon-70x70.png',
+        'Barberman%20Favicon/ms-icon-144x144.png',
+        'Barberman%20Favicon/ms-icon-150x150.png',
+        'Barberman%20Favicon/ms-icon-310x310.png',
         '1024x1024.png',
         'barberman-logo.png',
         'offline.html',
@@ -114,91 +114,91 @@ export default defineConfig({
         prefer_related_applications: false,
         icons: [
           {
-            src: '/Barberman Favicon/android-icon-36x36.png',
+            src: '/Barberman%20Favicon/android-icon-36x36.png',
             sizes: '36x36',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-48x48.png',
+            src: '/Barberman%20Favicon/android-icon-48x48.png',
             sizes: '48x48',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-72x72.png',
+            src: '/Barberman%20Favicon/android-icon-72x72.png',
             sizes: '72x72',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-72x72.png',
+            src: '/Barberman%20Favicon/android-icon-72x72.png',
             sizes: '72x72',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/android-icon-96x96.png',
+            src: '/Barberman%20Favicon/android-icon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-96x96.png',
+            src: '/Barberman%20Favicon/android-icon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/android-icon-144x144.png',
+            src: '/Barberman%20Favicon/android-icon-144x144.png',
             sizes: '144x144',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-144x144.png',
+            src: '/Barberman%20Favicon/android-icon-144x144.png',
             sizes: '144x144',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/android-icon-192x192.png',
+            src: '/Barberman%20Favicon/android-icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-192x192.png',
+            src: '/Barberman%20Favicon/android-icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/apple-icon-180x180.png',
+            src: '/Barberman%20Favicon/apple-icon-180x180.png',
             sizes: '180x180',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/favicon-96x96.png',
+            src: '/Barberman%20Favicon/favicon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/favicon-96x96.png',
+            src: '/Barberman%20Favicon/favicon-96x96.png',
             sizes: '96x96',
             type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/ms-icon-310x310.png',
+            src: '/Barberman%20Favicon/ms-icon-310x310.png',
             sizes: '310x310',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/ms-icon-310x310.png',
+            src: '/Barberman%20Favicon/ms-icon-310x310.png',
             sizes: '310x310',
             type: 'image/png',
             purpose: 'maskable'
@@ -216,13 +216,13 @@ export default defineConfig({
             purpose: 'maskable'
           },
           {
-            src: '/Barberman Favicon/android-icon-192x192.png',
+            src: '/Barberman%20Favicon/android-icon-192x192.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/Barberman Favicon/android-icon-192x192.png',
+            src: '/Barberman%20Favicon/android-icon-192x192.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable'
@@ -236,7 +236,7 @@ export default defineConfig({
             url: '/?utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=quick_booking',
             icons: [
               {
-                src: '/Barberman Favicon/android-icon-96x96.png',
+                src: '/Barberman%20Favicon/android-icon-96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
@@ -249,7 +249,7 @@ export default defineConfig({
             url: '/om-oss?utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=about_us',
             icons: [
               {
-                src: '/Barberman Favicon/android-icon-96x96.png',
+                src: '/Barberman%20Favicon/android-icon-96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
@@ -262,7 +262,7 @@ export default defineConfig({
             url: '/?tab=info&utm_source=pwa_shortcut&utm_medium=homescreen&utm_campaign=contact',
             icons: [
               {
-                src: '/Barberman Favicon/android-icon-96x96.png',
+                src: '/Barberman%20Favicon/android-icon-96x96.png',
                 sizes: '96x96',
                 type: 'image/png'
               }
