@@ -12,6 +12,30 @@
   "dir": "ltr",
   "categories": ["business", "lifestyle", "health", "beauty"],
   "prefer_related_applications": false,
+  "display_override": ["window-controls-overlay", "standalone"],
+  "protocol_handlers": [
+    {
+      "protocol": "web+barberman",
+      "url": "/?booking=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/",
+      "accept": {
+        "text/calendar": [".ics"]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
   "icons": [
     {
       "src": "/Favicon/android-icon-36x36.png",
@@ -74,156 +98,6 @@
       "purpose": "maskable"
     },
     {
-      "src": "/Favicon/apple-icon-57x57.png",
-      "sizes": "57x57",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-60x60.png",
-      "sizes": "60x60",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/Favicon/apple-icon-76x76.png",
-      "sizes": "76x76",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-114x114.png",
-      "sizes": "114x114",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-120x120.png",
-      "sizes": "120x120",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/Favicon/apple-icon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-180x180.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon-precomposed.png",
-      "sizes": "57x57",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/apple-icon.png",
-      "sizes": "57x57",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/Favicon/ms-icon-70x70.png",
-      "sizes": "70x70",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/ms-icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/ms-icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/Favicon/ms-icon-150x150.png",
-      "sizes": "150x150",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/ms-icon-310x310.png",
-      "sizes": "310x310",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/Favicon/ms-icon-310x310.png",
-      "sizes": "310x310",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
       "src": "/Favicon/android-icon-192x192.png",
       "sizes": "512x512",
       "type": "image/png",
@@ -275,22 +149,6 @@
           "type": "image/png"
         }
       ]
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/screenshots/mobile-booking.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Boka din tid enkelt via mobilen"
-    },
-    {
-      "src": "/screenshots/desktop-services.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Översikt av alla våra tjänster"
     }
   ],
   "related_applications": [],

@@ -8,38 +8,36 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" />
     
-    <!-- Modern PNG favicons (all major sizes) -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <!-- Enhanced Favicon Implementation - Multiple Sizes -->
+    <link rel="icon" type="image/png" sizes="36x36" href="/Favicon/android-icon-36x36.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/Favicon/android-icon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="72x72" href="/Favicon/android-icon-72x72.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/Favicon/android-icon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/Favicon/android-icon-144x144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Favicon/android-icon-192x192.png" />
     
-    <!-- APPLE STORE COMPLIANT TOUCH ICONS - ALL REQUIRED SIZES -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Standard favicon fallbacks -->
+    <link rel="icon" type="image/png" href="/Favicon/android-icon-96x96.png" />
+    <link rel="shortcut icon" type="image/png" href="/Favicon/android-icon-96x96.png" />
     
-    <!-- APPLE STORE REQUIRED 1024x1024 ICON (CRITICAL FOR APP STORE) -->
-    <link rel="apple-touch-icon" sizes="1024x1024" href="/icon-1024.png" />
+    <!-- Apple Touch Icons - Using our favicon with proper cascade -->
+    <link rel="apple-touch-icon" href="/Favicon/android-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Favicon/android-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="96x96" href="/Favicon/android-icon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Favicon/android-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="48x48" href="/Favicon/android-icon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="36x36" href="/Favicon/android-icon-36x36.png" />
     
     <!-- Apple touch icon fallbacks -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/Favicon/android-icon-144x144.png" />
     
     <!-- MICROSOFT TILE ICONS -->
     <meta name="msapplication-TileColor" content="#1F2937" />
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+    <meta name="msapplication-TileImage" content="/Favicon/ms-icon-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/Favicon/ms-icon-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/Favicon/ms-icon-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+    <meta name="msapplication-square310x310logo" content="/Favicon/ms-icon-310x310.png" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
     
     <!-- PWA BUILDER COMPLIANT VIEWPORT -->
@@ -99,9 +97,9 @@
     <meta property="og:description" content="Boka din tid hos The Barberman. Sveriges främsta barbering med fokus på kvalitet, precision och traditionellt hantverk. Professionell klippning och skäggtrim." />
     <meta property="og:site_name" content="The Barberman" />
     <meta property="og:url" content="https://thebarberman.netlify.app" />
-    <meta property="og:image" content="https://thebarberman.netlify.app/icon-1024.png" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
+    <meta property="og:image" content="https://thebarberman.netlify.app/Favicon/android-icon-192x192.png" />
+    <meta property="og:image:width" content="192" />
+    <meta property="og:image:height" content="192" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="sv_SE" />
     
@@ -109,7 +107,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Barberman - Sveriges Främsta Barbering i Jönköping" />
     <meta name="twitter:description" content="Boka din tid hos The Barberman. Sveriges främsta barbering med fokus på kvalitet, precision och traditionellt hantverk." />
-    <meta name="twitter:image" content="https://thebarberman.netlify.app/icon-1024.png" />
+    <meta name="twitter:image" content="https://thebarberman.netlify.app/Favicon/android-icon-192x192.png" />
     <meta name="twitter:site" content="@thebarberman" />
     <meta name="twitter:creator" content="@thebarberman" />
     
@@ -139,7 +137,7 @@
         "Sa 10:00-15:00"
       ],
       "priceRange": "$$",
-      "image": "https://thebarberman.netlify.app/icon-1024.png"
+      "image": "https://thebarberman.netlify.app/Favicon/android-icon-192x192.png"
     }
     </script>
     
